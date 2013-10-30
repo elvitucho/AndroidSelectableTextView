@@ -1,1 +1,3 @@
 ./bin/*
+./bin
+./bin/classes/com/android/vitucho/*

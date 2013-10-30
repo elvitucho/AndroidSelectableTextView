@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.vitucho.selectabletextview.R;
 
@@ -34,10 +35,6 @@ public class SelectableEditText extends EditText {
 			
 			@Override
 			public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-				// Inflate a menu resource providing context menu items
-				MenuInflater inflater = mode.getMenuInflater();
-				// Assumes that you have "contexual.xml" menu resources
-				inflater.inflate(R.menu.contextual, menu);
 				return true;
 			}
 			
@@ -49,13 +46,16 @@ public class SelectableEditText extends EditText {
 			
 			@Override
 			public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-				// TODO Auto-generated method stub
-				return false;
+				// Inflate a menu resource providing context menu items
+				MenuInflater inflater = mode.getMenuInflater();
+				// Assumes that you have "contexual.xml" menu resources
+				inflater.inflate(R.menu.contextual, menu);
+				return true;
 			}
 			
 			@Override
 			public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-				// TODO Auto-generated method stub
+				Toast.makeText(SelectableEditText.this.getContext(), item.getTitle()+" selected", Toast.LENGTH_SHORT).show();
 				return false;
 			}
 		});
